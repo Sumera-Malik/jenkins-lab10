@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+tools {
+    maven 'Maven'
+}
+
     // ----- PARAMETERS -----
     parameters {
         booleanParam(name: 'executeTests',
@@ -17,6 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building... Version: ${VERSION}"
+                 bat 'mvn -version'
             }
         }
 
