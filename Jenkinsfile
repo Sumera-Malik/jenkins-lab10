@@ -3,13 +3,20 @@ pipeline {
 
     // ----- PARAMETERS -----
     parameters {
-        booleanParam(name: 'executeTests', defaultValue: true, description: 'Run Test stage?')
+        booleanParam(name: 'executeTests',
+                     defaultValue: true,
+                     description: 'Run Test stage?')
+    }
+
+    // ----- ENVIRONMENT VARIABLES -----
+    environment {
+        VERSION = '1.0.0'
     }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo "Building... Version: ${VERSION}"
             }
         }
 
